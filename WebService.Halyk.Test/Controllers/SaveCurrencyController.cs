@@ -66,6 +66,7 @@ namespace WebService.Halyk.Test.Controllers
             {
                 return Ok(currencies);
             }
+            ModelState.AddModelError("", "Something goes wrong go to developer");
             return BadRequest(ModelState);
         }
     }
