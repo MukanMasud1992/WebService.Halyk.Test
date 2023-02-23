@@ -62,12 +62,18 @@ namespace WebService.Halyk.Test.Controllers
         
         {
             var currencies = _currencyRepository.GetCurrency(date, code);
-            if(currencies!=null) 
+          
+            if (currencies.Count==0)
             {
-                return Ok(currencies);
+                return NotFound();
             }
-            ModelState.AddModelError("", "Something goes wrong go to developer");
-            return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Something goes wrong go to developer");
+                return BadRequest(ModelState);
+            }
+            return Ok(currencies);
+        }
         }
     }
 }
