@@ -1,0 +1,10 @@
+USE TEST
+CREATE TABLE R_CURRENCY
+(
+    Id INT PRIMARY KEY IDENTITY,
+    TITLE nvarchar(60),
+	CODE varchar(3),      
+    VALUE Decimal (18,2),       
+	A_DATE DATE
+)
+DROP TABLE R_CURRENCY
